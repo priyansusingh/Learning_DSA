@@ -1,3 +1,5 @@
+#include<iostream>
+using namespace std;
 //leetcode 1047: remove all adjacent duplicates in String
 class Solution {
 public:

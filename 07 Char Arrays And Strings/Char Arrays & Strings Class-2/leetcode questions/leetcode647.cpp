@@ -1,6 +1,10 @@
+#include<iostream>
+using namespace std;
 // leetcode647. Palindromic Substrings
 class Solution {
 public:
+//This function returns count of oddPalidromes and evenPalindromes of the given string
+// if it exists 
     int expandAroundCenter(string s, int i, int j){
         int count = 0;
         while(i>=0 && j<=s.length() && s[i]==s[j]){ //i and j should be valid index

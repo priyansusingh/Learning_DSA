@@ -1,3 +1,5 @@
+#include<iostream>
+using namespace std;
 //leetcode 1910: remove all occurrences of a substring
 class Solution {
 public:
