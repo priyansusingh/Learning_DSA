@@ -1,0 +1,41 @@
+Sieve of Eratosthenes:
+----------------------
+The Sieve of Eratosthenes is an ancient algorithm used to find all prime numbers up to a specified integer. It works efficiently by iteratively marking the multiples of each prime number starting from 2.
+
+Steps:
+1. Create a list of consecutive integers from 2 to n (let's call it `numbers`).
+2. Start with the first number in the list (p = 2).
+3. Mark all multiples of p (2p, 3p, 4p, etc.) as non-prime.
+4. Find the next number in the list that is not marked and set p to this new number.
+5. Repeat steps 3 and 4 until p^2 > n.
+6. The remaining unmarked numbers in the list are all prime numbers.
+
+Example:
+To find all primes less than 30:
+- Start with the list: 2, 3, 4, 5, 6, ..., 30
+- Mark multiples of 2: 4, 6, 8, 10, ..., 30
+- Mark multiples of 3: 6, 9, 12, 15, ..., 30
+- Mark multiples of 5: 10, 15, 20, 25, 30
+- Continue until p^2 > 30
+- Remaining unmarked numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+Segmented Sieve:
+----------------
+The Segmented Sieve is an extension of the Sieve of Eratosthenes that is used to find all prime numbers in a given range [L, R]. It is particularly useful for large ranges where the traditional Sieve of Eratosthenes would be inefficient.
+
+Steps:
+1. Use the Sieve of Eratosthenes to find all prime numbers up to √R.
+2. Create a boolean array `isPrime` of size (R - L + 1) and initialize all entries as true.
+3. For each prime number `p` found in step 1, mark its multiples in the range [L, R] as non-prime.
+4. To mark multiples of `p`, start from the maximum of p^2 or the smallest multiple of p within the range [L, R].
+5. The remaining true entries in the `isPrime` array correspond to prime numbers in the range [L, R].
+
+Example:
+To find all primes in the range [10, 30]:
+- Use the Sieve of Eratosthenes to find primes up to √30 (i.e., primes up to 5): 2, 3, 5
+- Create an array `isPrime` of size 21 (30 - 10 + 1) and initialize all entries as true.
+- Mark multiples of 2 in the range [10, 30]: 10, 12, 14, ..., 30
+- Mark multiples of 3 in the range [10, 30]: 12, 15, 18, ..., 30
+- Mark multiples of 5 in the range [10, 30]: 10, 15, 20, 25, 30
+- Remaining true entries in `isPrime`: 11, 13, 17, 19, 23, 29
+
