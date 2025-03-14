@@ -1,41 +1,72 @@
-Sieve of Eratosthenes:
-----------------------
-The Sieve of Eratosthenes is an ancient algorithm used to find all prime numbers up to a specified integer. It works efficiently by iteratively marking the multiples of each prime number starting from 2.
+# Basic Maths for DSA
 
-Steps:
-1. Create a list of consecutive integers from 2 to n (let's call it `numbers`).
-2. Start with the first number in the list (p = 2).
-3. Mark all multiples of p (2p, 3p, 4p, etc.) as non-prime.
-4. Find the next number in the list that is not marked and set p to this new number.
-5. Repeat steps 3 and 4 until p^2 > n.
-6. The remaining unmarked numbers in the list are all prime numbers.
+## Prime Numbers
+- A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+- Examples: 2, 3, 5, 7, 11, 13, ...
 
-Example:
+## Greatest Common Divisor (GCD)
+- The GCD of two integers is the largest positive integer that divides both numbers without leaving a remainder.
+- Example: GCD of 8 and 12 is 4.
+
+## Least Common Multiple (LCM)
+- The LCM of two integers is the smallest positive integer that is divisible by both numbers.
+- Example: LCM of 4 and 5 is 20.
+
+## Modular Arithmetic
+- Modular arithmetic is a system of arithmetic for integers, where numbers "wrap around" after reaching a certain value—the modulus.
+- Example: 7 mod 3 is 1.
+
+# Sieve of Eratosthenes
+
+## Introduction
+- The Sieve of Eratosthenes is an efficient algorithm to find all prime numbers up to a given limit `n`.
+- It works by iteratively marking the multiples of each prime number starting from 2.
+
+## Steps
+1. Create a boolean array `prime[0..n]` and initialize all entries as true. A value in `prime[i]` will be false if `i` is not a prime.
+2. Start with the first prime number, p = 2.
+3. Mark all multiples of p as false.
+4. Find the next number greater than p that is true. If there is no such number, stop.
+5. Repeat step 3 and 4 until p^2 > n.
+
+## Example
 To find all primes less than 30:
-- Start with the list: 2, 3, 4, 5, 6, ..., 30
-- Mark multiples of 2: 4, 6, 8, 10, ..., 30
-- Mark multiples of 3: 6, 9, 12, 15, ..., 30
-- Mark multiples of 5: 10, 15, 20, 25, 30
-- Continue until p^2 > 30
-- Remaining unmarked numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+1. Initialize: `prime[0..30] = {true, true, true, ..., true}`
+2. p = 2, mark multiples of 2: `prime[4], prime[6], prime[8], ..., prime[30]` as false.
+3. p = 3, mark multiples of 3: `prime[9], prime[12], prime[15], ..., prime[30]` as false.
+4. Continue with p = 5, p = 7, etc.
 
-Segmented Sieve:
-----------------
-The Segmented Sieve is an extension of the Sieve of Eratosthenes that is used to find all prime numbers in a given range [L, R]. It is particularly useful for large ranges where the traditional Sieve of Eratosthenes would be inefficient.
+## Time Complexity
+- The time complexity of the Sieve of Eratosthenes is O(n log log n).
+- This is because each prime number p marks its multiples in the range up to n, and the number of operations for each prime is approximately n/p.
 
-Steps:
-1. Use the Sieve of Eratosthenes to find all prime numbers up to √R.
-2. Create a boolean array `isPrime` of size (R - L + 1) and initialize all entries as true.
-3. For each prime number `p` found in step 1, mark its multiples in the range [L, R] as non-prime.
-4. To mark multiples of `p`, start from the maximum of p^2 or the smallest multiple of p within the range [L, R].
-5. The remaining true entries in the `isPrime` array correspond to prime numbers in the range [L, R].
+# Modular Arithmetic in DSA
 
-Example:
-To find all primes in the range [10, 30]:
-- Use the Sieve of Eratosthenes to find primes up to √30 (i.e., primes up to 5): 2, 3, 5
-- Create an array `isPrime` of size 21 (30 - 10 + 1) and initialize all entries as true.
-- Mark multiples of 2 in the range [10, 30]: 10, 12, 14, ..., 30
-- Mark multiples of 3 in the range [10, 30]: 12, 15, 18, ..., 30
-- Mark multiples of 5 in the range [10, 30]: 10, 15, 20, 25, 30
-- Remaining true entries in `isPrime`: 11, 13, 17, 19, 23, 29
+## Introduction
+- Modular arithmetic is a fundamental concept in number theory and computer science.
+- It deals with integers and a modulus, where numbers wrap around upon reaching the modulus value.
+
+## Properties
+1. **Addition**: (a + b) mod n = [(a mod n) + (b mod n)] mod n
+2. **Subtraction**: (a - b) mod n = [(a mod n) - (b mod n) + n] mod n
+3. **Multiplication**: (a * b) mod n = [(a mod n) * (b mod n)] mod n
+4. **Exponentiation**: (a^b) mod n can be computed efficiently using modular exponentiation.
+
+## Applications
+- **Cryptography**: Many encryption algorithms, such as RSA, rely on modular arithmetic.
+- **Hash Functions**: Used in hash functions to ensure values stay within a fixed range.
+- **Random Number Generators**: Often use modular arithmetic to produce numbers within a desired range.
+
+## Example Problems
+1. **Finding the remainder**: Compute 17 mod 5.
+    - Solution: 17 mod 5 = 2.
+2. **Modular Addition**: Compute (7 + 5) mod 3.
+    - Solution: (7 + 5) mod 3 = 12 mod 3 = 0.
+3. **Modular Multiplication**: Compute (4 * 6) mod 5.
+    - Solution: (4 * 6) mod 5 = 24 mod 5 = 4.
+
+## Modular Exponentiation
+- To compute (a^b) mod n efficiently, use the method of exponentiation by squaring.
+- Example: Compute (3^10) mod 7.
+  - Solution: (3^10) mod 7 = 4.
 
