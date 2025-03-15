@@ -40,33 +40,34 @@ To find all primes less than 30:
 - The time complexity of the Sieve of Eratosthenes is O(n log log n).
 - This is because each prime number p marks its multiples in the range up to n, and the number of operations for each prime is approximately n/p.
 
-# Modular Arithmetic in DSA
-
-## Introduction
-- Modular arithmetic is a fundamental concept in number theory and computer science.
-- It deals with integers and a modulus, where numbers wrap around upon reaching the modulus value.
-
-## Properties
-1. **Addition**: (a + b) mod n = [(a mod n) + (b mod n)] mod n
-2. **Subtraction**: (a - b) mod n = [(a mod n) - (b mod n) + n] mod n
-3. **Multiplication**: (a * b) mod n = [(a mod n) * (b mod n)] mod n
-4. **Exponentiation**: (a^b) mod n can be computed efficiently using modular exponentiation.
-
-## Applications
-- **Cryptography**: Many encryption algorithms, such as RSA, rely on modular arithmetic.
-- **Hash Functions**: Used in hash functions to ensure values stay within a fixed range.
-- **Random Number Generators**: Often use modular arithmetic to produce numbers within a desired range.
-
-## Example Problems
-1. **Finding the remainder**: Compute 17 mod 5.
-    - Solution: 17 mod 5 = 2.
-2. **Modular Addition**: Compute (7 + 5) mod 3.
-    - Solution: (7 + 5) mod 3 = 12 mod 3 = 0.
-3. **Modular Multiplication**: Compute (4 * 6) mod 5.
-    - Solution: (4 * 6) mod 5 = 24 mod 5 = 4.
-
 ## Modular Exponentiation
 - To compute (a^b) mod n efficiently, use the method of exponentiation by squaring.
 - Example: Compute (3^10) mod 7.
   - Solution: (3^10) mod 7 = 4.
 
+# Finding GCD using Euclid's Algorithm
+
+## Introduction
+- Euclid's algorithm is an efficient method for computing the greatest common divisor (GCD) of two integers.
+- The GCD of two numbers is the largest number that divides both of them without leaving a remainder.
+
+## Steps
+1. Given two integers `a` and `b`, where `a > b`, compute `a - b` ans if b > a then b-a.
+3. Repeat the process until `a` or `b` becomes 0.
+4. The GCD is the last non-zero value of `b` or `a`.
+
+## Example
+To find the GCD of 48 and 18:
+   gcd(48,18)
+1. Compute `48 - 18` which is 30.
+2. Computer gcd(30, 18)
+   `30-18` which is 12.
+3. Compute gcd(12,18)
+   `18-12` which is 6.
+4. gcd(12,6)
+     `12-6` which is 6.
+5. gdc(6,6)
+    `6-6` which is 0.
+6. gcd(6,0)
+   if one of a or b is zero the non zero one is the answer
+so a = 6 is the answer.
