@@ -42,7 +42,7 @@ int main(){
         {1,2,3,4}
     };
     //2D array->heap memory
-    //4->row count; 3->col count
+    //4->row count; 3->col count 
     int**prr= new int*[4];
     for(int i=0;i<4;i++){
         // har pointer ke liye ek 1D array create krna hai

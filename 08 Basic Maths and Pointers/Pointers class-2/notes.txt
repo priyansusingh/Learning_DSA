@@ -1,0 +1,27 @@
+Stack Memory:
+- Stack memory is a region of memory that stores temporary variables created by functions.
+- It operates in a Last In, First Out (LIFO) manner.
+- When a function is called, its local variables and function parameters are pushed onto the stack.
+- Once the function execution is complete, the memory allocated for its variables is automatically deallocated.
+- Stack memory is limited in size and is managed automatically by the compiler.
+- It is faster to allocate and deallocate memory on the stack compared to the heap.
+- Variables stored in stack memory are only accessible within the scope of the function in which they are declared.
+- Stack memory is not suitable for storing large amounts of data or data that needs to persist beyond the function's execution.
+
+Heap Memory:
+- Heap memory is a region of memory used for dynamic memory allocation.
+- It is managed manually by the programmer using functions like `new` and `delete` in C++.
+- Memory allocated on the heap persists until it is explicitly deallocated by the programmer.
+- Unlike stack memory, heap memory is not limited by function scope and can be shared across different parts of the program.
+- Heap memory is suitable for storing large amounts of data or data that needs to persist for the program's lifetime.
+- Allocating and deallocating memory on the heap is slower compared to the stack due to the overhead of managing dynamic memory.
+- Improper management of heap memory can lead to issues like memory leaks and fragmentation.
+
+Key Differences:
+1. **Management**: Stack memory is managed automatically, while heap memory requires manual management.
+2. **Lifetime**: Stack memory is temporary and tied to function scope, whereas heap memory persists until explicitly deallocated.
+3. **Speed**: Stack memory allocation/deallocation is faster than heap memory.
+4. **Size**: Stack memory is limited in size, while heap memory is larger but depends on system resources.
+5. **Usage**: Stack is used for local variables and function calls, while heap is used for dynamic memory allocation.
+
+Example in C++:
