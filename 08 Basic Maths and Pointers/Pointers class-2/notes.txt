@@ -9,6 +9,7 @@ Stack Memory:
 - Stack memory is not suitable for storing large amounts of data or data that needs to persist beyond the function's execution.
 
 Heap Memory:
+- Array is automatically initialized as 0 in heap memory
 - Heap memory is a region of memory used for dynamic memory allocation.
 - It is managed manually by the programmer using functions like `new` and `delete` in C++.
 - Memory allocated on the heap persists until it is explicitly deallocated by the programmer.
