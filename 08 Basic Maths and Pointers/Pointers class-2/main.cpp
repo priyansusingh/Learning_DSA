@@ -1,12 +1,14 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
 void solve(int* ar, int size){
     cout<<sizeof(ar)<<endl;
 }
 void solvev(vector<int>v){
     cout<<sizeof(v)<<endl;
 }
+
 int main(){
     int ar[]={10,20,30,40,50};
     int size=5;
