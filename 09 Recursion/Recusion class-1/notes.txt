@@ -30,3 +30,7 @@ Components of Recursion:
                       3 * factorial(2) // 3 * 2 = 6
                             |
                       2 * factorial(1) // 2 * 1 = 2 --> factorial(1) and factorial(0) == 1 is BaseCase means ruk jao.
+
+-Tail Recursion: Jab bhi recursive call bottom me hogi, tab wo tail recursion kehlayega.
+-Head Recursion: Jab bottom me nhi hoga tab head recursion kehlayega.
+
