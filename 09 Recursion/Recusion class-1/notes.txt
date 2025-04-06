@@ -1,0 +1,32 @@
+--Recursion--
+What is Recursion ?
+- When a function calls itself directly or indirectly , it is known as Recursion.
+
+When to apply Recursion ?
+- Jab ek badi problem ka solution , depend karta hai choti problem pe , wahan pe hum Recursion apply 
+kar sakte hai. 
+
+How to apply Recursion ?
+##Magical Line:- Ek case hum solve karenge baaki Recursion sambhaal lega.
+
+- Recursion me agar base case naa daale to wo stack ka sara ka sara space le lega aur stack overflow ho jayega.
+Recursive/Reccurrence Relation:
+
+factorial(7) = 7 * factorial(6)
+factorial(n) = n * factorial(n-1)
+
+Badi problem--> factorial(n)
+Choti problem--> factorial(n-1)
+
+Components of Recursion:
+1. Base case/ condition(Rukna kab hai) --> Mandatory
+2. Recursive calls --> Mandatory
+3. Processsing part --> Optional
+
+   factorial(5) = 5 * factorial(4) // 5 * 24 = 120
+                            |
+                      4 * factorial(3) // 4 * 6 = 24
+                            |
+                      3 * factorial(2) // 3 * 2 = 6
+                            |
+                      2 * factorial(1) // 2 * 1 = 2 --> factorial(1) and factorial(0) == 1 is BaseCase means ruk jao.
