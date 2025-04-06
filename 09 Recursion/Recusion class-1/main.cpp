@@ -8,7 +8,8 @@ int getFactorial(int n){
     }
  
     //recursive call
-    int finalAns = n * getFactorial(n-1);
+    int recursionKaAns = getFactorial(n-1);
+    int finalAns = n * recursionKaAns;
 
     return finalAns;
 }
