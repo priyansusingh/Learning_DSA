@@ -10,6 +10,8 @@ int max(int a, int b){
     }
 }
 
+
+
 void printAllOddNumbers(int* arr, int size, int index){
 
     //base case
@@ -17,7 +19,7 @@ void printAllOddNumbers(int* arr, int size, int index){
         return;
     }
     //1 case
-    if(arr[index]&1){
+    if((arr[index])&1){
         cout << arr[index] <<" ";
     }
     //baaki recursion
