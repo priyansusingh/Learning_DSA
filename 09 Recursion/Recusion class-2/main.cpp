@@ -1,6 +1,31 @@
 #include<iostream>
 using namespace std;
 
+int max(int a, int b){
+    if(a>b){
+        return a;
+    }
+    else{
+        return b;
+    }
+}
+
+
+//Maximum number in array
+void findMax(int* arr, int size, int index, int &maxi){
+  //base case
+  if(index >= size){
+    return;
+  }
+  //recursive relation
+  maxi = max(maxi,arr[index]);
+
+  findMax(arr,size,index+1, maxi);
+  
+}
+
+
+
 //Search in a Array
 bool searchInArray(int* arr, int index, int target, int size){
     //base case
@@ -8,7 +33,9 @@ bool searchInArray(int* arr, int index, int target, int size){
         return false;
     }
     //ek case mai solve karunga
-    if( arr[index] == target){
+    //ise base case bhi bol sakte hai
+    if( arr[index] >= target){
+        //invalid index out of bound of array
          return true;
     }
     //Recursive relation
@@ -32,12 +59,20 @@ printArray(arr,size,index+1);
 }
 
 int main(){ 
-   int arr[] = {12, 32, 24, 21, 43, 53};
+   int arr[] = {10, 20, 30, 40, 50, 60};
    int size = 6;
+   int target = 600;
+   int maxi = INT8_MIN;
 
-//    printArray(arr,size, 0);
+   findMax(arr,size,0,maxi);
+   cout << maxi << endl;
 
-   cout << searchInArray(arr,0,53, size) << endl;
+   //string ans = searchInArray(arr,0,target, size) ? "found":"not found";
+   //cout << ans << endl;
+   //printArray(arr,size, 0);
 
-    return 0;
+
+  
+
+   return 0;
 }

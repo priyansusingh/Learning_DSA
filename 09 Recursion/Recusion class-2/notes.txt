@@ -1,1 +1,3 @@
 --Recursion with arrays--
+Q1. Print array
+Q2. Search in the array
