@@ -10,21 +10,35 @@ int max(int a, int b){
     }
 }
 
+//Minimum number in array
+void findMin(int* arr, int size, int index, int &mini){
+    //base case
+    if(index >= size){
+      //entire array traverse ho chuka hai
+      return;
+    }
+    //recursive relation
+    //1 case mera
+    mini = min(mini,arr[index]);
+    //baaki recursion
+    findMin(arr,size,index+1, mini);
+    
+  }
 
 //Maximum number in array
 void findMax(int* arr, int size, int index, int &maxi){
   //base case
   if(index >= size){
+    //entire array traverse ho chuka hai
     return;
   }
   //recursive relation
+  //1 case mera
   maxi = max(maxi,arr[index]);
-
+  //baaki recursion
   findMax(arr,size,index+1, maxi);
   
 }
-
-
 
 //Search in a Array
 bool searchInArray(int* arr, int index, int target, int size){
@@ -63,9 +77,14 @@ int main(){
    int size = 6;
    int target = 600;
    int maxi = INT8_MIN;
+   int mini = INT8_MAX;
 
-   findMax(arr,size,0,maxi);
-   cout << maxi << endl;
+
+   findMin(arr,size,0,mini);
+   cout << mini << endl;
+
+//    findMax(arr,size,0,maxi);
+//    cout << maxi << endl;
 
    //string ans = searchInArray(arr,0,target, size) ? "found":"not found";
    //cout << ans << endl;
