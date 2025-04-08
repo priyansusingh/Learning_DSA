@@ -2,6 +2,11 @@
 Q1. Print array
 Q2. Search in the array
 Q3. Find maximum number in array
+
 note: Jab bhi recursion mein kisi function ke andar answer ka variable ya data structure send kro
 to by refference send kro jisse uska actual  change hoga aur bactracking ke time uska copy mein changes aayenge
 actual value mein nahi
+
+Q4. Find minimum number in array
+Q5. Print all odd numbers
+Q6. Print all even numbers

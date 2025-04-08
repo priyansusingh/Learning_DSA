@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 int max(int a, int b){
@@ -25,7 +26,7 @@ void printAllEvenNumbers(int* arr, int size, int index){
 
 }
 
-void printAllOddNumbers(int* arr, int size, int index){
+void printAllOddNumbers(int* arr, int size, int index, vector<int> &ans){
 
     //base case
     if(index >= size){
@@ -33,10 +34,10 @@ void printAllOddNumbers(int* arr, int size, int index){
     }
     //1 case
     if((arr[index])&1){
-        cout << arr[index] <<" ";
+        ans.push_back(arr[index]);
     }
     //baaki recursion
-    printAllOddNumbers(arr,size,index+1);
+    printAllOddNumbers(arr,size,index+1,ans);
 
 }
 
@@ -109,11 +110,15 @@ int main(){
    int maxi = INT8_MIN;
    int mini = INT8_MAX;
    int index = 0;
+   vector<int> ans;
 
-   printAllEvenNumbers(arr,size,index);
+//    printAllEvenNumbers(arr,size,index);
 
-//    printAllOddNumbers(arr,size,index);
-
+   printAllOddNumbers(arr,size,index,ans);
+   
+   for(auto num: ans){
+    cout << num <<' ';
+   }
 //    findMin(arr,size,index,mini);
 //    cout << mini << endl;
 
