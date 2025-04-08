@@ -10,7 +10,20 @@ int max(int a, int b){
     }
 }
 
+void printAllEvenNumbers(int* arr, int size, int index){
 
+    //base case
+    if(index >= size){
+        return;
+    }
+    //1 case
+    if(!((arr[index])&1)){
+        cout << arr[index] <<" ";
+    }
+    //baaki recursion
+    printAllEvenNumbers(arr,size,index+1);
+
+}
 
 void printAllOddNumbers(int* arr, int size, int index){
 
@@ -96,7 +109,10 @@ int main(){
    int maxi = INT8_MIN;
    int mini = INT8_MAX;
    int index = 0;
-   printAllOddNumbers(arr,size,index);
+
+   printAllEvenNumbers(arr,size,index);
+
+//    printAllOddNumbers(arr,size,index);
 
 //    findMin(arr,size,index,mini);
 //    cout << mini << endl;
