@@ -2,19 +2,17 @@
 using namespace std;
 
 //Search in a Array
-int getTheNumber(int* arr, int index, int target, int size){
-    int ans = -1;
+bool searchInArray(int* arr, int index, int target, int size){
     //base case
     if(index == size){
-        return -1;
+        return false;
     }
     //ek case mai solve karunga
     if( arr[index] == target){
-         ans = index;
-         return ans;
+         return true;
     }
     //Recursive relation
-    getTheNumber(arr, index+1, target, size);
+    bool ans = searchInArray(arr, index+1, target, size);
     //Processing
     return ans;
 }
@@ -39,7 +37,7 @@ int main(){
 
 //    printArray(arr,size, 0);
 
-   cout << getTheNumber(arr,0,53, size) << endl;
+   cout << searchInArray(arr,0,53, size) << endl;
 
     return 0;
 }
