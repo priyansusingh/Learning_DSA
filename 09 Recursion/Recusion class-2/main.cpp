@@ -2,17 +2,22 @@
 using namespace std;
 
 //Search in a Array
-int getTheNumber(int* arr, int size, int index, int target){
+int getTheNumber(int* arr, int index, int target, int size){
+    int ans = -1;
     //base case
+    if(index == size){
+        return -1;
+    }
+    //ek case mai solve karunga
     if( arr[index] == target){
-        return index;
+         ans = index;
+         return ans;
     }
     //Recursive relation
-    
+    getTheNumber(arr, index+1, target, size);
     //Processing
-
+    return ans;
 }
-
 
 //Print the Array
 void printArray(int* arr, int size, int index){
@@ -32,7 +37,9 @@ int main(){
    int arr[] = {12, 32, 24, 21, 43, 53};
    int size = 6;
 
-   printArray(arr,size, 0);
+//    printArray(arr,size, 0);
+
+   cout << getTheNumber(arr,0,53, size) << endl;
 
     return 0;
 }
