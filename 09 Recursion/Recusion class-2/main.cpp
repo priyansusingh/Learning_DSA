@@ -10,6 +10,21 @@ int max(int a, int b){
     }
 }
 
+void printAllOddNumbers(int* arr, int size, int index){
+
+    //base case
+    if(index >= size){
+        return;
+    }
+    //1 case
+    if(arr[index]&1){
+        cout << arr[index] <<" ";
+    }
+    //baaki recursion
+    printAllOddNumbers(arr,size,index+1);
+
+}
+
 //Minimum number in array
 void findMin(int* arr, int size, int index, int &mini){
     //base case
@@ -73,22 +88,23 @@ printArray(arr,size,index+1);
 }
 
 int main(){ 
-   int arr[] = {10, 20, 30, 40, 50, 60};
+   int arr[] = {11, 20, 33, 41, 32, 69};
    int size = 6;
    int target = 600;
    int maxi = INT8_MIN;
    int mini = INT8_MAX;
+   int index = 0;
+   printAllOddNumbers(arr,size,index);
 
+//    findMin(arr,size,index,mini);
+//    cout << mini << endl;
 
-   findMin(arr,size,0,mini);
-   cout << mini << endl;
-
-//    findMax(arr,size,0,maxi);
+//    findMax(arr,size,index,maxi);
 //    cout << maxi << endl;
 
-   //string ans = searchInArray(arr,0,target, size) ? "found":"not found";
+   //string ans = searchInArray(arr,index,target, size) ? "found":"not found";
    //cout << ans << endl;
-   //printArray(arr,size, 0);
+   //printArray(arr,size, index);
 
 
   
