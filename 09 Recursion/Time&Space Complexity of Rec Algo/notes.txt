@@ -1,0 +1,7 @@
+Time and Space complexity of recursive algorithm:
+
+main(){                 fun(){
+                          fun(n-1);
+                        }
+    fun();
+}

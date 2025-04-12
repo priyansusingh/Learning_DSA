@@ -1,0 +1,26 @@
+Include / Exclude Pattern:
+-> Ek team banana hota hai jisme captain ko choose karna padta hai available options 
+me se ki lena hai ya nahi lena hai(include or Exclude).
+-> Include karne ka ek answer hota hai, Exclude karne ka ek answer hota hai
+-> Answer depend karega jisse team strong bane
+
+Substring:
+
+"Racecar"
+
+Substring can be : "R" , "Rac", "cec" , "car" etc.
+A Substring has to be continous.
+
+Subsequence:
+"Love"
+
+Subsequence can be : "Lo", "Loe", "Le" etc
+
+"abc"
+
+Subsequence can be : "a" , "b", "c" , "ab" , "bc" , "ac" , "abc" , "" . 
+
+Subsequence do not have to be continous but it should maintain the order of the original string.
+like if a comes before b in original string the in the Subsequence also a should come before b.
+
+Total no. of Subsequences are : 2^n , where n = length of the string
