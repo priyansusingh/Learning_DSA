@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 bool checkSorted(int *arr, int size, int index)
 {
     // base case
