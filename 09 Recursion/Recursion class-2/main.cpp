@@ -79,7 +79,7 @@ bool searchInArray(int* arr, int index, int target, int size){
     }
     //ek case mai solve karunga
     //ise base case bhi bol sakte hai
-    if( arr[index] >= target){
+    if( arr[index] == target){  
         //invalid index out of bound of array
          return true;
     }
