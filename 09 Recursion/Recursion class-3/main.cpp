@@ -1,6 +1,23 @@
 #include <iostream>
 using namespace std;
 
+bool checkSortedDescending(int *arr, int size, int index){
+    //base case
+    if(index+1 == size-1){
+        return true;
+    }
+    //1 case
+    bool meraAns = false;
+    bool recKaAns = false;
+    if( arr[index+1] < arr[index]){
+        meraAns = true;
+    }
+    //baaki recursion
+    recKaAns = checkSortedDescending(arr,size,index+1);
+    
+    return (meraAns&&recKaAns);
+}
+
 bool checkSorted(int *arr, int size, int index)
 {
     // base case
@@ -24,10 +41,10 @@ bool checkSorted(int *arr, int size, int index)
 
 int main()
 {
-    int arr[] = {12, 23, 34, 54, 58, 67, 75};
+    int arr[] = {70, 60, 50, 40, 30, 20, 10};
     int size = 7;
     int index = 0;
-    bool ans = checkSorted(arr, size, index);
+    bool ans = checkSortedDescending(arr, size, index);
     cout << ans;
     return 0;
 }
