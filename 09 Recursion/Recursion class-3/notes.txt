@@ -24,3 +24,13 @@ Subsequence do not have to be continous but it should maintain the order of the 
 like if a comes before b in original string the in the Subsequence also a should come before b.
 
 Total no. of Subsequences are : 2^n , where n = length of the string
+
+Example: 
+
+                                "xy"
+
+                inc                               Excl
+            "xy", "x"  
+                                                "xy", ""
+         inc         Excl              inc                     Excl
+        "xy","xy"  "xy", "x"       "xy", "y"               "xy", ""

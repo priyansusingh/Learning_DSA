@@ -18,8 +18,7 @@ bool checkSortedDescending(int *arr, int size, int index){
     return (meraAns&&recKaAns);
 }
 
-bool checkSorted(int *arr, int size, int index)
-{
+bool checkSorted(int *arr, int size, int index){
     // base case
     if (index+1 == size-1)
     {

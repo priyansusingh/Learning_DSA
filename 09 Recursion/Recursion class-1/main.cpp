@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
- 
+
 //sum of 1 to n
 int getSum(int n){
    //base case
@@ -23,7 +23,6 @@ int fibo(int n){
 
     return ans;
 }
-
 
 //prints 2^n 
 int pow(int n){
