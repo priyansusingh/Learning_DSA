@@ -1,5 +1,22 @@
 #include <iostream>
+#include<vector>
 using namespace std;
+
+void printSubsequences(string str, int i, string output, vector<string> &ans){
+  //base case
+    if(i == str.length()){
+        ans.push_back(output);
+        return;
+    }
+  // 1 case
+  //include
+  char ch = str[i];
+  printSubsequences(str, i+1, output+ch,ans);
+  //exclude
+  printSubsequences(str, i+1, output,ans);
+  // baaki recursion
+}
+
 
 bool checkSortedDescending(int *arr, int size, int index){
     //base case
@@ -40,10 +57,21 @@ bool checkSorted(int *arr, int size, int index){
 
 int main()
 {
-    int arr[] = {70, 60, 50, 40, 30, 20, 10};
-    int size = 7;
+    string str = "abc";
+    string output = "";
+    vector<string> ans;
     int index = 0;
-    bool ans = checkSortedDescending(arr, size, index);
-    cout << ans;
+   printSubsequences(str, index, output,ans);
+  cout << "size-->" << ans.size() << endl;
+
+  cout << "printing subsequesces: " << endl;
+  for(auto i: ans){
+   cout << i << endl;
+  }
+    // int arr[] = {70, 60, 50, 40, 30, 20, 10};
+    // int size = 7;
+    // int index = 0;
+    // bool ans = checkSortedDescending(arr, size, index);
+    // cout << ans;
     return 0;
 }

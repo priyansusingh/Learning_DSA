@@ -34,3 +34,7 @@ Example:
                                                 "xy", ""
          inc         Excl              inc                     Excl
         "xy","xy"  "xy", "x"       "xy", "y"               "xy", ""
+
+Total Subsequences : xy, x, y, "" = 4 = 2^2 = 2^n
+
+n = length of string
