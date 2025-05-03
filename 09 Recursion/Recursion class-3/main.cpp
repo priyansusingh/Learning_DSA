@@ -63,7 +63,6 @@ int main()
     int index = 0;
    printSubsequences(str, index, output,ans);
   cout << "size-->" << ans.size() << endl;
-
   cout << "printing subsequesces: " << endl;
   for(auto i: ans){
    cout << i << endl;
