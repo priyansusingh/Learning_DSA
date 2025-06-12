@@ -8,13 +8,12 @@ void printSubsequences(string str, int i, string output, vector<string> &ans){
         ans.push_back(output);
         return;
     }
-  // 1 case
+  //1 case
   //include
   char ch = str[i];
   printSubsequences(str, i+1, output+ch,ans);
   //exclude
   printSubsequences(str, i+1, output,ans);
-  // baaki recursion
 }
 
 
@@ -57,16 +56,25 @@ bool checkSorted(int *arr, int size, int index){
 
 int main()
 {
-    string str = "abc";
-    string output = "";
-    vector<string> ans;
-    int index = 0;
+   string str = "abc";
+   string output = "";
+   vector<string> ans;
+   int index = 0;
    printSubsequences(str, index, output,ans);
-  cout << "size-->" << ans.size() << endl;
-  cout << "printing subsequesces: " << endl;
-  for(auto i: ans){
+   cout << "size-->" << ans.size() << endl;   string str = "abc";
+   string output = "";
+   vector<string> ans;
+   int index = 0;
+   printSubsequences(str, index, output,ans);
+   cout << "size-->" << ans.size() << endl;
+   cout << "printing subsequesces: " << endl;
+   for(auto i: ans){
    cout << i << endl;
-  }
+   }
+   cout << "printing subsequesces: "<< endl;
+   for(auto i: ans){
+   cout << i << endl;
+   }
     // int arr[] = {70, 60, 50, 40, 30, 20, 10};
     // int size = 7;
     // int index = 0;
