@@ -1,0 +1,5 @@
+Backtracking is a Problem solving techniques in which we explore all possible ways and we cant use the path/way which is already used
+
+- Revert or Undo the changes you made on the path while backtracking.
+
+Q1. Rat in a maze problem
