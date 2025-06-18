@@ -1,0 +1,11 @@
+Permutation of strings: Give chance to every character in a place.
+Total number of Permutations = 3! = 6
+example:
+string: abc
+Permutations:
+               abc
+               acb
+               bac
+               bca
+               cab
+               cba 
