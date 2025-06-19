@@ -1,0 +1,4 @@
+Problem 1: Sudoku Solver (leetcode:37)
+
+obs:
+> no base case because there is no recursive call after the board is completely filled
