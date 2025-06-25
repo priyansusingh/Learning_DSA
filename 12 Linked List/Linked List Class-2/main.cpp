@@ -94,6 +94,64 @@ else{
 }
 }
 
+bool searchInLL(Node* &head, int target){
+     Node* temp = head;
+     while(temp != NULL){
+        if(temp->data == target){
+            return true;
+        }else{
+            temp = temp->next;
+        }
+     }
+   return false;
+}
+
+void deleteFromLL(int position, Node* &head, Node* &tail){
+    int len = getLength(head);
+    if( head == NULL && tail == NULL){
+        cout << "Cant delete , ll is empty"<<endl;
+        return;
+    }
+    else if( position < 1 || position > len+1){
+      cout << "Invalid Position"<<endl;
+      return;
+    }
+    else if(head == tail){
+        Node* temp = head;
+        head = NULL;
+        tail = NULL;
+        delete temp;
+    }
+    else if( position == 1){
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        head->prev = NULL;
+        delete temp;
+    }
+    else if(position == len){
+        Node* temp = tail;
+        tail = tail->prev;
+        tail->next = NULL;
+        temp->prev = NULL;
+        delete temp;
+    }
+  else{
+      Node* curr = head;
+    for(int i=0; i<position-1; i++){
+       curr = curr->next;
+    }
+    Node* backward = curr->prev;
+    Node* forward = curr->next;
+    curr->next = NULL;
+    curr->prev = NULL;
+    backward->next = forward;
+    forward->prev = backward;
+
+    delete curr;
+}
+  }
+
 void printReverse(Node* tail){
     Node* temp = tail;
     while(temp != NULL){
@@ -123,5 +181,12 @@ int main(){
    print(head);
    cout << "Length: " << getLength(head) << endl;
 //    printReverse(tail);
+  cout << searchInLL(head,110) << endl;
+  deleteFromLL(1,head,tail);
+  deleteFromLL(6,head,tail);
+  deleteFromLL(3,head,tail);
+  print(head);
+  cout << "Length: " << getLength(head) << endl;
+  printReverse(tail);
     return 0;
 }
