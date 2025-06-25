@@ -87,10 +87,51 @@ void print(Node* &head){
   } cout <<"NULL"<<endl;
 }
 
-bool isPresent(int value, Node* head){
+// searching: LINEAR SEARCH
+bool isPresent(int target, Node* &head){
     Node* temp = head;
+    while(temp!=NULL){
+        if(temp->data == target) return true;
+        temp = temp->next;
+    }
+    //poori LL traverse krli but target nhi mila
+    return false;
+}
 
-    
+void deleteFromLL(int position, Node* &head, Node* &tail){
+    if(head == NULL && tail == NULL){
+        cout << "Cannot delete LL is empty" << endl;
+        return;
+    }
+
+    if(head == tail){
+        Node* temp = head;
+         head = NULL;
+         tail = NULL;
+         delete temp;
+         return;
+    }
+
+
+   else if(position== 1){
+       Node* temp = head;
+       head = temp->next;
+       temp->next = NULL;
+       delete temp;
+       return;
+   }
+   else{
+    Node* prev = head;
+    for(int i=0; i<position-2; i++){
+        prev = prev->next;
+    }
+    Node* curr = prev->next;
+    Node* forward = curr->next;
+    prev->next = forward;
+    curr->next = NULL;
+    delete curr;
+    return;
+   }
 }
 
 int main() {
@@ -124,6 +165,12 @@ int main() {
 
   insertAtPosition(6,head,tail,1);
   print(head); 
+  cout << "Size: "<< getLength(head) << endl;
+
+  cout << isPresent(730,head) << endl;
+
+  deleteFromLL(10,head,tail);
+  print(head);
   cout << "Size: "<< getLength(head) << endl;
 
   return 0;
