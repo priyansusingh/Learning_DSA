@@ -69,12 +69,17 @@ int main() {
   s.print();
   s.push2(40);
   s.print();
-
-  s.pop1();
+  s.push1(23);
   s.print();
-
-  s.pop2();
+  s.push2(82);
   s.print();
+  
+  // s.pop1();
+  // s.print();
+
+  // s.pop2();
+  // s.print();
+  
 
   return 0;
 }
