@@ -24,6 +24,13 @@ void reverseStack( stack<int> &s){
     insertAtBottom(s,topElement);
 }
 
+void print(stack<int> s){
+    while(!s.empty()){
+        cout << s.top() <<" ";
+        s.pop();
+      }cout <<endl;
+}
+
 int main() {
   stack<int> s;
   s.push(10);
@@ -31,13 +38,10 @@ int main() {
   s.push(30);
   s.push(40);
   s.push(50);
-  reverseStack(s);
   
-  while(!s.empty()){
-    cout << s.top() <<" ";
-    s.pop();
-  }
-
+  print(s);
+  reverseStack(s);
+  print(s);
 
   return 0;
 }
