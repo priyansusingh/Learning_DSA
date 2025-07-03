@@ -118,6 +118,24 @@ void postOrderTraversal(Node* root){
     postOrderTraversal(root->right);
     cout << root->data <<" ";
 }
+
+bool searchBST(Node* root, int target){
+    if(root == NULL){
+        return false;
+    }
+    if(root->data == target){
+        return true;
+    }
+    bool ans = false;
+    if(target < root->data){
+       ans=  searchBST(root->left,target);
+    }
+    else{
+       ans = searchBST(root->right,target);
+    }
+    return ans;
+}
+
 int main(){
     Node* root = NULL;
     createTree(root);
@@ -135,6 +153,8 @@ int main(){
     cout<<endl;
     cout<< "Min Element: "<< getMin(root) << endl;
     cout<< "Max Element: "<< getMax(root) << endl;
-
+    cout<< searchBST(root, 2);
     return 0;
 }
+
+//100 50 200 70 20 250 150 -1
