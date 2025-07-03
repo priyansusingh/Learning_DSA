@@ -14,10 +14,10 @@ class Solution {
             if( root == NULL ){
                 return NULL;
             }
-            if( root->val == p->val){
+            if( root == p){
                 return p;
             }
-            if( root->val == q->val){
+            if( root == q){
                 return q;
             }
             //recursion
