@@ -79,31 +79,47 @@ void buildHeap(int *arr, int n){
    }
 }
 
+void heapSort(int *arr, int n){;
+
+   while(n > 1){
+    swap(arr[1], arr[n-1]);
+    n--;
+    heapify(arr,n,1);
+   }
+}
 
 
 int main(){
     Heap pq(6);
 
     // 50 40 20 10 30
-    // int arr[] = {-1, 10, 20, 30, 40, 50};
-    // int n = 6;
+    int arr[] = {-1, 10, 20, 30, 40, 50};
+    int n = 6;
     
-    // buildHeap(arr,n);
-    // cout<<endl;
-    // for(int i=1; i<n; i++){
-    //  cout << arr[i] <<" ";
-    // }cout<<endl;
+    buildHeap(arr,n);
+    cout<<"Before heap Sort: "<<endl;
+    for(int i=1; i<n; i++){
+     cout << arr[i] <<" ";
+    }cout<<endl;
 
-    pq.insert(10);
-    pq.printHeap();
-    pq.insert(20);
-    pq.printHeap();
-    pq.insert(30);
-    pq.printHeap();
-    pq.insert(40);
-    pq.printHeap();
-    pq.insert(50);
-    pq.printHeap();
+    heapSort(arr,n);
+    cout<<"After heap Sort: "<<endl;
+    for(int i=1; i<n; i++){
+     cout << arr[i] <<" ";
+    }cout<<endl;
+
+    // pq.insert(10);
+    // pq.printHeap();
+    // pq.insert(20);
+    // pq.printHeap();
+    // pq.insert(30);
+    // pq.printHeap();
+    // pq.insert(40);
+    // pq.printHeap();
+    // pq.insert(50);
+    // pq.printHeap();
+
+    
     
     // pq.deleteFromHeap();
     // pq.printHeap();
