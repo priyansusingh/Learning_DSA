@@ -1,44 +1,54 @@
-#include<iostream>
-#include<unordered_map>
-using namespace std;
+// gfg: Is Binary Tree Heap
 
-class TrieNode{
+class Solution {
     public:
-    char value;
-    unordered_map<int,TrieNode*> children;
-    bool isTerminal;
-
-    TrieNode(char data){
-        value = data;
-        isTerminal = false;
-    }
-
-};
-
-void insertIntoTrie(TrieNode* root, string word){
-    //base case -> jab word khatam ho gaya ho
-    if(word.length() == 0){
-        root->isTerminal = true;
-        return;
-    }
-
-    char ch = word[0];
-    TrieNode* child;     // child ka variable creation
-    
-    if(root->children.count(ch) == 1){
-        child = root->children[ch]; 
-    }
-    else{
-        child = new TrieNode(ch);
-        root->children[ch] = child;
-    }
-    
-    insertIntoTrie(child,word.substr(1));
-}
-
-
-int main(){
-    
-
-    return 0;
-}
+  
+      bool checkCompleteness(Node*root){
+          queue<Node*>q;
+          q.push(root);
+          bool nullFound = false;
+          while(!q.empty()){
+              Node* front = q.front();
+              q.pop();
+              if(front==NULL){
+                  nullFound = true;
+              }
+              else{
+                  // front is a valid node
+                  if(nullFound){
+                      // not a cbt
+                      return false;
+                  }
+                  else{
+                      // may be a cbt, continue processing
+                  q.push(front->left);
+                  q.push(front->right);
+                  }
+                  
+              }
+          }
+          return true;
+      }
+  
+      bool checkMaxProperty(Node*root){
+          if(root==NULL) return true;
+          if(root->left == NULL && root->right == NULL) return true;
+          bool leftAns = checkMaxProperty(root->left);
+          bool rightAns = checkMaxProperty(root->right);
+  
+          bool option1 = true;
+          if(root->left && root->data < root->left->data) option1 = false;
+          bool option2 = true;
+          if(root->right && root->data < root->right->data) option2 = false;
+          bool currAns = option1 && option2;
+          if(currAns && leftAns && rightAns) return true;
+          else return false;
+      }
+  
+      bool isHeap(struct Node* tree) {
+          bool completeness = checkCompleteness(tree);
+          bool maxProperty = checkMaxProperty(tree);
+          if(completeness && maxProperty) return true;
+          return false;
+      }
+  };
