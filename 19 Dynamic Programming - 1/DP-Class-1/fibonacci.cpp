@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
 class Solution {
     public:
         int solveUsingRecursion(int n){
@@ -53,6 +54,33 @@ class Solution {
         }
          return dp[n];
         }
+      
+       int solveUsingSpaceOptimised(int n){
+          //Step 1: Create dp array
+          //vector<int> dp(n+1,-1);
+    
+          //Step 2: Analyze base cases paste and base case copy and update dp array
+           if(n == 0){
+                return 0;
+            }
+            if(n == 1){
+                return 1;
+            }
+          int prev = 0;
+          int curr = 1;
+          
+        //Step 3: Check parameter range and reverse it and run a loop over it
+        //recursion n->0
+        //loop 0 -> 1
+        int ans;
+        for(int i=2; i<=n; i++){
+            //copy paste
+            int ans = curr + prev;
+            prev = curr;
+            curr = ans;
+        }
+         return curr;
+        }
     
         int fib(int n) {
             // int ans = solveUsingRecursion(n);
@@ -61,6 +89,6 @@ class Solution {
         //     vector<int> dp(n+1,-1);
         //    return solveUsingMem(n,dp);
     
-       return solveUsingTabulation(n);
+       return solveUsingSpaceOptimised(n);
         }
     };
