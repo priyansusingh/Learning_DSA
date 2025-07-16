@@ -57,6 +57,25 @@ bool searchTrie(TrieNode* root, string word){
     return recursionKaAns;
 }
 
+void deleteWord(TrieNode* root, string word){
+    if(word.length() == 0){
+        root->isTerminal = false;
+        return;
+    }
+
+    char ch = word[0];
+    TrieNode* child;
+
+    if(root->children.find(ch) != root->children.end()){
+        //found
+        child = root->children[ch];
+    }
+    else{
+        return;
+    }
+    deleteWord(child,word.substr(1));
+}
+
 int main(){
     TrieNode* root = new TrieNode('-');    
     insertIntoTrie(root,"cover");
@@ -72,13 +91,23 @@ int main(){
     insertIntoTrie(root,"selfobsessed");
 
     bool ans = searchTrie(root,"cover");
-
+    
     if(ans){
       cout<<"Found"<<endl;
     }
     else{
       cout<<"Not Found"<<endl;
     }
+    deleteWord(root,"cover");
 
+    ans = searchTrie(root,"cover");
+    
+    if(ans){
+      cout<<"Found"<<endl;
+    }
+    else{
+      cout<<"Not Found"<<endl;
+    }
+    
     return 0;
 }
