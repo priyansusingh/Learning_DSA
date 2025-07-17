@@ -1,94 +1,104 @@
 #include<iostream>
 #include<vector>
+#include<limits.h>
 using namespace std;
 
-// leetcode 322. Coin Change
+// leetcode 300. Longest Increasing Subsequence
 
 class Solution {
     public:
-        int solve(vector<int>& coins, int amount){
-            //base case
-            if(amount==0){
-                //how much coins needed to create 0 amount
+        int solveRec(vector<int>&arr, int curr, int prev){
+            // base case
+            if(curr >= arr.size()){
                 return 0;
             }
-            int minCoinAns = INT_MAX;
-            //har amount ke liye poore coins ke array ko traverse krenge
-            for(int i=0;i<coins.size();i++){
-                int coin = coins[i];
-                //if coin value > amount value-> no need to call recursive function. else call recursive function
-                if(coin <= amount){
-                    //1 coin used, amount becomes-> amount-coins
-                    //rest recursion will handle
-                    int recursionAns = solve(coins, amount-coin);
-                    //recursionAns can be valid or invalid
-                    //invalid case-> recursionAns = INT_MAX
-                    if(recursionAns!=INT_MAX){
-                        int coinsUsed = 1+recursionAns;
-                        minCoinAns = min(minCoinAns, coinsUsed);
-                    }
-                }
+            // prev: index that was included latest in the traversal
+            int inc = 0;
+            if(prev == -1 || arr[curr] > arr[prev]){
+                inc = 1 + solveRec(arr,curr+1,curr);
             }
-            return minCoinAns;
+            int exc = 0 + solveRec(arr,curr+1,prev);
+            int finalAns = max(inc,exc);
+            return finalAns;
         }
     
-        // top-down: 1d dp
-        int solveMem(vector<int>& coins, int amount,vector<int>&dp){
-            //base case
-            if(amount==0){
+    
+        // top-down: 
+        int solveMem(vector<int>&arr, int curr, int prev, vector<vector<int> >&dp){
+            // base case
+            if(curr >= arr.size()){
                 return 0;
             }
-            // step3: check if ans already exists
-            if(dp[amount]!=-1){
-                return dp[amount];
+            if(dp[curr][prev+1]!=-1) return dp[curr][prev+1];
+            // prev: index that was included latest in the traversal
+            int inc = 0;
+            if(prev == -1 || arr[curr] > arr[prev]){
+                inc = 1 + solveMem(arr,curr+1,curr,dp);
             }
-            int minCoinAns = INT_MAX;
-            for(int i=0;i<coins.size();i++){
-                int coin = coins[i];
-                if(coin <= amount){
-                    int recursionAns = solveMem(coins, amount-coin,dp);
-                    if(recursionAns!=INT_MAX){
-                        int coinsUsed = 1+recursionAns;
-                        minCoinAns = min(minCoinAns, coinsUsed);
-                    }
-                }
-            }
-            // step2: store ans in dp and return
-            dp[amount] = minCoinAns;
-            return dp[amount];
-        }
-    
-        int solveTab(vector<int>&coins, int amount){
-            vector<int> dp(amount+1,-1);
-            dp[0] = 0;
-            for(int amt = 1; amt <= amount; amt++){
-                // logic
-                int minCoinAns = INT_MAX;
-                for(int i = 0; i < coins.size();i++){
-                    int coin = coins[i];
-                    if(coin <= amt){
-                        int recursionAns = dp[amt-coin];
-                        if(recursionAns!=INT_MAX){
-                            int coinsUsed = 1 + recursionAns;
-                            minCoinAns = min(minCoinAns,coinsUsed);
-                        } 
-                    }
-                }
-                dp[amt] = minCoinAns;
-            }
-            return dp[amount];
+            int exc = 0 + solveMem(arr,curr+1,prev,dp);
+            dp[curr][prev+1] = max(inc,exc);
+            return dp[curr][prev+1];
         }
     
     
+        // bottom-up
+        int solveTab(vector<int>&arr, int curr, int prev){
+            int n = arr.size();
+            vector<vector<int> > dp(n+1, vector<int>(n+1,0));
+            
+            // rec ranges:
+            // curr-> 0 to n
+            // prev-> -1 to curr
+            // reverse it and apply loop
+            for(int curr = n-1; curr >= 0; curr--){
+                for(int prev = curr - 1; prev >= -1; prev--){
+                    int inc = 0;
+                    if(prev == -1 || arr[curr] > arr[prev]){
+                        inc = 1 + dp[curr+1][curr+1];
+                    }
+                    int exc = 0 + dp[curr+1][prev+1];
+                    dp[curr][prev+1] = max(inc,exc);
+                }
+            }
+            // return dp[0][-1+1];
+            return dp[0][0];
+        }
     
-        int coinChange(vector<int>& coins, int amount) {
-            // int ans = solve(coins, amount);
-            
-            vector<int>dp(amount+1,-1);
-            // int ans = solveMem(coins,amount,dp);
-            
-            int ans = solveTab(coins,amount);
-            if(ans==INT_MAX) return -1;
-            return ans;
+        int lengthOfLIS(vector<int>& nums) {
+            int curr = 0;
+            int prev = -1; //lastIndex
+            // return solveRec(nums,curr,prev);
+    
+            // OBSERTVATION: prev hamesha curr se peeche rehne wala hai
+            int n = nums.size();
+            vector<vector<int> > dp(n+1, vector<int>(n+1,-1));
+            // return solveMem(nums,curr,prev,dp);
+    
+            return solveTab(nums,curr,prev);
+        }
+    };
+    
+    
+    
+    // optimised solution : BINARY SEARCH->mega class
+    // TC: O(nlogn)
+    class Solution {
+    public:
+        int lengthOfLIS(vector<int>& nums) {
+            vector<int>ans;
+            ans.push_back(nums[0]);
+    
+            for(int i = 1; i<nums.size();i++){ // O(N)
+                if(nums[i] > ans.back()){
+                    ans.push_back(nums[i]);
+                }
+                else{
+                    // find the index of just >= the ith element(lowerbound->gives iterator not index) 
+                    auto it = lower_bound(ans.begin(),ans.end(),nums[i]); //O(logn)
+                    int index = it - ans.begin(); //get index from iterator
+                    ans[index] = nums[i];
+                }
+            }
+            return ans.size();
         }
     };
