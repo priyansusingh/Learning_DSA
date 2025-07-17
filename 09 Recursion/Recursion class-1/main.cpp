@@ -7,7 +7,7 @@ int getSum(int n){
    if(n == 1){
      return 1;
    }
-   //recursive relations
+   //recursive relation
    int ans = n + getSum(n-1);
    //processing
    return ans;

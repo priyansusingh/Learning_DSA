@@ -1,3 +1,7 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
 class Solution {
     public:
         //Bottom-Up Approach or Rec + Mem

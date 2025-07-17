@@ -9,7 +9,7 @@ class Solution {
         vector<int> twoSum(vector<int>& nums, int target) {
             unordered_map<int,int> map;
     
-            // for(int index=0; index<nums.size(); index++){
+            // efor(int index=0; index<nums.size(); index++){
             //     int value = nums[index];
             //     map[value] = index;
             // }
