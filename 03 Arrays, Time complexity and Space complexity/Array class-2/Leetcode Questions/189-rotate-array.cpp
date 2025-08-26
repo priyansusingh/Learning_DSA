@@ -1,4 +1,8 @@
 // leetcode 189. Rotate array
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
 
 class Solution {
 public:
@@ -13,3 +17,14 @@ public:
         reverse(nums.begin()+k, nums.end());
     }
 };
+
+int main(){
+    vector<int> nums= {11,32,32,24,54,25,56,45};
+    int k=3;
+    Solution s;
+    s.rotate(nums,k);
+
+    for(int i=0; i<nums.size(); i++){
+        cout<<nums[i]<<" ";
+    }cout<<endl;
+}

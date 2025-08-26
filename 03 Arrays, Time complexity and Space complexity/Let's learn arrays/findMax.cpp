@@ -1,4 +1,5 @@
 #include<iostream>
+#include<limits.h>
 // #include<limits.h> //if any error occurs while using INT_MIN
 using namespace std;
 //linear search to find max number in array

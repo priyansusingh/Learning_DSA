@@ -12,8 +12,8 @@ public:
                 return s;
             }
             if(mid+1 < n && arr[mid] > arr[mid+1]) {
-                return mid;
-            }
+                return mid; 
+            } 
             if(arr[s] > arr[mid] ) {
                 e = mid-1;
             }
