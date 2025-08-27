@@ -1,3 +1,6 @@
+#include<iostream>
+#include<vector>
+using namespace std;
 //leetcode 540: Single Element in a Sorted Array
 class Solution {
 public:

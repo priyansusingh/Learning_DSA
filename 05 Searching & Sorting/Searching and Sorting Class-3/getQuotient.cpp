@@ -29,9 +29,10 @@ int getQuotient(int dividend , int divisor){
     }
     return ans;
 }
+
 int main(){
     int dividend=10;
-    int divisor=-2;
+    int divisor= -2;
 
     int ans = getQuotient(abs(dividend),abs(divisor));
     if((dividend<0 && divisor>0) || (dividend>0 && divisor<0)){
