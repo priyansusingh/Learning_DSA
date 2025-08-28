@@ -1,3 +1,7 @@
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+
 // leetcode 2325. Decode the Message
 class Solution {
 public:
@@ -33,3 +37,14 @@ public:
         return ans;
     }
 };
+
+int main(){
+    string message = "i am bad boy";
+    string key = "am";
+
+    Solution s;
+    string ans = s.decodeMessage(message,key);
+    cout << ans <<" ";
+    
+    return 0;
+}
