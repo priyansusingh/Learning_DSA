@@ -1,8 +1,11 @@
 //leetcode 791:custom sort string
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
 string orderCopy;
 class Solution {
 public:
-    
     static bool cmp(char a, char b){
         //order wali string me dekho ki konsa character phle ana chiye and konsa character badme aana chiye
         //return true: a will be placed before b

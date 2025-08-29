@@ -1,3 +1,8 @@
+#include<iostream>
+#include<unordered_map>
+#include<vector>
+using namespace std;
+
 // leetcode 890. Find and Replace Pattern
 class Solution {
     public:
@@ -35,3 +40,10 @@ class Solution {
             return ans;
         }
     };
+
+int main(){
+
+
+
+    return 0;
+}

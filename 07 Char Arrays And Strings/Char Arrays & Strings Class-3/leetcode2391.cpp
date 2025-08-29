@@ -1,3 +1,6 @@
+#include<iostream>
+#include<vector>
+using namespace std;
 //leetcode 2391: minimum amount of time to collect garbage
 class Solution {
 public:
@@ -17,7 +20,7 @@ public:
 
         for(int i=0; i<garbage.size(); i++){
             string currHouse = garbage[i];
-            for(int j=0; j<currHouse.length(); j++){
+            for(int j=0; j<currHouse.length(); j++){    
                 char garbageType = currHouse[j];
                 if(garbageType == 'P'){
                     pickP++;

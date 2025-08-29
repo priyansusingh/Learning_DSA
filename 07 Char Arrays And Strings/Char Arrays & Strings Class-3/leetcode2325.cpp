@@ -22,8 +22,8 @@ public:
             }
             else{
                 //currentCharacter is mapping 
-                mapping[keyCurrrentCharacter] = start;
-                start++;
+                mapping[keyCurrrentCharacter] = start; 
+                start++; 
                 index++;
             }
         }
@@ -39,12 +39,12 @@ public:
 };
 
 int main(){
-    string message = "i am bad boy";
-    string key = "am";
+    string message = "the quick brown fox jumps over the lazy dog";
+    string key = "vkbs bs t suepuv";
 
     Solution s;
     string ans = s.decodeMessage(message,key);
     cout << ans <<" ";
-    
+
     return 0;
 }
