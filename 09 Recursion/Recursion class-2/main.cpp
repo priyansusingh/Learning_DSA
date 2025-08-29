@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<limits.h>
 using namespace std;
 
 int max(int a, int b){
@@ -107,8 +108,8 @@ int main(){
    int arr[] = {11, 20, 33, 41, 32, 69};
    int size = 6;
    int target = 600;
-   int maxi = INT8_MIN;
-   int mini = INT8_MAX;
+   int maxi = INT_MIN;
+   int mini = INT_MAX;
    int index = 0;
    vector<int> ans;
 

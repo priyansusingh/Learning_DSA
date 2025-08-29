@@ -16,7 +16,6 @@ void printSubsequences(string str, int i, string output, vector<string> &ans){
   printSubsequences(str, i+1, output,ans);
 }
 
-
 bool checkSortedDescending(int *arr, int size, int index){
     //base case
     if(index+1 == size-1){
