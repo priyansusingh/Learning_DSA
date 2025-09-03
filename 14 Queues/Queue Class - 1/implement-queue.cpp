@@ -17,7 +17,7 @@ class Queue{
    }
    void push(int value){
     if(rear == size-1){
-        cout <<"Queue if full, cant push" << endl;
+        cout <<"Queue is full, cant push" << endl;
     }
     else if(front == -1 && rear == -1){
      front++;
