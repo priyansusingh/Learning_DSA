@@ -35,7 +35,6 @@ Node* createTree(){
     }
 }
 
-
 int main(){
   Node* root;
   root = createTree();
