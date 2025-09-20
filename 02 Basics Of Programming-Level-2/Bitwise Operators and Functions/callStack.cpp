@@ -10,8 +10,7 @@ void solve(){
     hello();
     cout<<4;
 }
-int main(){
-    
+int main(){    
     cout<<1;
     solve();
     cout<<2;

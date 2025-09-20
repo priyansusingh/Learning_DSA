@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cmath>
 using namespace std;
+
 //method 1
 int decimalToBinary1(int n){
     //division method
