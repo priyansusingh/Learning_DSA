@@ -3,35 +3,35 @@ using namespace std;
 //member functions
 int main(){
     string name = "Maharana Pratap";
-    cout<<name[0]<<endl;
+    cout<<name[0]<<endl;  //M
     //at
-    cout<<name.at(9)<<endl;
+    cout<<name.at(9)<<endl; //P
     //front
-    cout<<name.front()<<endl;
+    cout<<name.front()<<endl; //M
     //back
-    cout<<name.back()<<endl;
+    cout<<name.back()<<endl; //p
     //length
-    cout<<name.length()<<endl;
-    auto it = name.begin();
+    cout<<name.length()<<endl; //15
+    auto it = name.begin(); 
     while(it!=name.end()){
         cout<<*it<<" ";
-        it++;
+        it++;                  // M a h a r a n a   P r a t a p 
     }
     cout<<endl;
 
     //substr
-    cout<<name.substr(3,5)<<endl;
-    cout<<name.substr(7)<<endl;
+    cout<<name.substr(3,5)<<endl;  //arana
+    cout<<name.substr(7)<<endl;   //a Pratap
 
     //find
     string word="Pra";
     int findd = name.find(word); //return index at which string is found
     cout<<findd<<endl;
     if(name.find(word)!= string::npos){ //npos represent no position found
-        //not found
+        //found
     }
     else{
-        //found
+        //not found
     }
 
     //clear

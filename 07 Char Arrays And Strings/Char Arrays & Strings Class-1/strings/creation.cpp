@@ -17,8 +17,8 @@ int main(){
     cout<<str<<endl;
 
     string sentence;
-    //cin>>sentence;
-    getline(cin, sentence,'\n');
+    // cin>>sentence;  // isse space ke baad ka input nahi le payenge
+    getline(cin, sentence,'\n'); // isse jab tak enter nahi dabta tab tak ka input hoga
     cout<<sentence<<endl;
     return 0;
 }

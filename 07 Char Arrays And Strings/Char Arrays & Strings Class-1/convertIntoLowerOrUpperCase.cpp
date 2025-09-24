@@ -14,7 +14,7 @@ void convertIntoUpperCase(char arr[], int n){
     int len = getLength(arr,n);
     for(int i=0; i<len; i++){
         char ch = arr[i];
-        //if letter if lowercase
+        //if letter is lowercase
         if(ch>='a' && ch<='z'){
             ch= ch-'a'+'A';
         }
